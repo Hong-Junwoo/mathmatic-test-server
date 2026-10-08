@@ -1,0 +1,9 @@
+{
+  "app": {
+    "name": "mathmatic-test-server",
+    "env": "stage"
+  },
+  "server": {
+    "port": 8080
+  }
+}
