@@ -9,6 +9,7 @@ import (
 
 // ProblemRepository 는 메모리에 문제를 보관하는 driven 어댑터입니다.
 // 나중에 DB 어댑터로 교체해도 outbound.ProblemRepository 만 지키면 됩니다.
+// CD Test
 type ProblemRepository struct {
 	problems map[string]domain.Problem
 }
