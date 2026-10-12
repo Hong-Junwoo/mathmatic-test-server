@@ -39,7 +39,7 @@ type HealthResponse struct {
 }
 
 // healthz godoc
-// @Summary  상태 확인
+// @Summary  상태 확인 API
 // @Description 서버가 정상 동작 중인지 확인합니다.
 // @Tags     health
 // @Produce  json
