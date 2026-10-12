@@ -1,0 +1,8 @@
+basePath: /
+info:
+  contact: {}
+  description: 수학 문제 출제 및 채점 서버 API
+  title: mathmatic-test-server API
+  version: "1.0"
+paths: {}
+swagger: "2.0"
