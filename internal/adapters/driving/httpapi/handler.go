@@ -33,8 +33,20 @@ func NewHandler(uc inbound.ProblemUseCase) http.Handler {
 	return mux
 }
 
+// HealthResponse 는 상태 확인 응답입니다.
+type HealthResponse struct {
+	Status string `json:"status" example:"ok"`
+}
+
+// healthz godoc
+// @Summary  상태 확인
+// @Description 서버가 정상 동작 중인지 확인합니다.
+// @Tags     health
+// @Produce  json
+// @Success  200 {object} HealthResponse
+// @Router   /healthz [get]
 func (h *Handler) healthz(w http.ResponseWriter, _ *http.Request) {
-	writeJSON(w, http.StatusOK, map[string]string{"status": "ok"})
+	writeJSON(w, http.StatusOK, HealthResponse{Status: "ok"})
 }
 
 func (h *Handler) getProblem(w http.ResponseWriter, r *http.Request) {
