@@ -8,6 +8,8 @@ import (
 	"mathmatic-test-server/internal/core/domain"
 	"mathmatic-test-server/internal/ports/inbound"
 
+	_ "mathmatic-test-server/docs"
+
 	httpSwagger "github.com/swaggo/http-swagger"
 )
 
