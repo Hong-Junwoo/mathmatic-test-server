@@ -21,7 +21,7 @@ const docTemplate = `{
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "",
-	BasePath:         "/",
+	BasePath:         "/api",
 	Schemes:          []string{},
 	Title:            "mathmatic-test-server API",
 	Description:      "수학 문제 출제 및 채점 서버 API",

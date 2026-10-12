@@ -7,6 +7,8 @@ import (
 
 	"mathmatic-test-server/internal/core/domain"
 	"mathmatic-test-server/internal/ports/inbound"
+
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 // Handler 는 HTTP 요청을 유스케이스 호출로 바꿔주는 driving 어댑터입니다.
@@ -18,10 +20,14 @@ type Handler struct {
 func NewHandler(uc inbound.ProblemUseCase) http.Handler {
 	h := &Handler{useCase: uc}
 
+	api := http.NewServeMux()
+	api.HandleFunc("GET /healthz", h.healthz)
+	api.HandleFunc("GET /problems/{id}", h.getProblem)
+	api.HandleFunc("POST /problems/{id}/answer", h.checkAnswer)
+
 	mux := http.NewServeMux()
-	mux.HandleFunc("GET /healthz", h.healthz)
-	mux.HandleFunc("GET /problems/{id}", h.getProblem)
-	mux.HandleFunc("POST /problems/{id}/answer", h.checkAnswer)
+	mux.Handle("/api/", http.StripPrefix("/api", api))
+	mux.HandleFunc("GET /api/", httpSwagger.WrapHandler)
 	return mux
 }
 

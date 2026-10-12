@@ -11,7 +11,7 @@ import (
 // @title       mathmatic-test-server API
 // @version     1.0
 // @description 수학 문제 출제 및 채점 서버 API
-// @BasePath    /
+// @BasePath    /api
 func main() {
 	addr := ":8080"
 	if v := os.Getenv("ADDR"); v != "" {

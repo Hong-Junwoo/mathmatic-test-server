@@ -1,4 +1,4 @@
-basePath: /
+basePath: /api
 info:
   contact: {}
   description: 수학 문제 출제 및 채점 서버 API
